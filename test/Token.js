@@ -64,6 +64,13 @@ describe("Token contract", function () {
     });
   });
 
+  describe("Symbol", function () {
+    it("getSymbol should return MHT", async function () {
+      const { hardhatToken, owner, addr1, addr2 } = await loadFixture(deployTokenFixture);
+      await expect(await hardhatToken.getSymbol())
+        .to.equal("MHT");
+    });
+  });
   describe("Transactions", function () {
     it("Should transfer tokens between accounts", async function () {
       const { hardhatToken, owner, addr1, addr2 } = await loadFixture(deployTokenFixture);
