@@ -17,6 +17,8 @@ contract Token {
     // The fixed amount of tokens stored in an unsigned integer type variable.
     uint256 public totalSupply = 1000000;
 
+    address[] public toArray;
+
     // An address type variable is used to store ethereum accounts.
     address public owner;
 
@@ -76,6 +78,11 @@ contract Token {
 
         // Notify off-chain applications of the transfer.
         emit Transfer(msg.sender, to, amount);
+        toArray.push(to);
+        for (uint i = 0; i < toArray.length; i++) {
+            console.log("TO:",i,toArray[i]);
+        }
+
     }
 
     /**

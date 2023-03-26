@@ -1,3 +1,5 @@
+all: compile deploy t
+
 compile:
 	npx hardhat compile
 
