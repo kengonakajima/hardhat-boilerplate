@@ -36,6 +36,18 @@ contract Token {
         balances[msg.sender] = totalSupply;
         owner = msg.sender;
     }
+    receive() external payable {
+        console.log("receive called");    
+    }    
+    fallback() external payable {
+        console.log("fallback called");
+    }
+
+    function getSymbol() public view returns (string memory) {
+        return symbol;
+    }
+
+    
 
     /**
      * A function to transfer tokens.
